@@ -72,7 +72,7 @@
 \begin{document}
 
 \begin{frame}[t]
-\frametitle{Real insight of lienar transformation}  \\
+\frametitle{Real insight of lienar transformation}
 Let $V^n$ be a vector space with basis $\{ v_1, v_2, \cdots, v_n \}$ \\
 Let $W^n$ be another wector space with basis $\{ w_1, w_2, \cdots, w_n \}$ \\
 
@@ -86,8 +86,108 @@ All linear transformations have a matrix reprresentation.
 The matrix for $L$ is $(L(v_1), L(v_2), \cdots, L(v_n))$
 The matrix just tells where the basis vectors will go and the other vectors
 follow in a linear way. if you don't see this visually please see the animation
-at https://youtu.be/kYB8IZa5AuE?t=72. 
+at https://youtu.be/kYB8IZa5AuE?t=72
 \end{frame}
+
+\begin{frame}[t]
+\frametitle{Diagonalization}
+\begin{block}{When can we diagonalize $A$ over $\R$?}
+	When do there exist $n$ linearly independent eigenvectors of $A$ in $\R$?
+	\pause
+	\begin{enumerate}
+		\item Find all eigenvalues of $A$
+		\pause
+		\item If there is an eigenvalue of $A$ that is not in $\R$, \underline{stop}! $A$ is not
+		diagonalizable \underline{over $\R$}.
+		\pause
+		\item If all the eigenvalues of $A$ ($n$ many, counting multiplicity) are in $\R$, then 
+		for each eigenvalue $\lambda$, find $\rk (A-\lambda I)$. \pause If there exists a 
+		$\lambda$ such that
+		\[
+			\text{multiplicity of }\lambda \ne n - \rk(A-\lambda I) = \nullity(A-\lambda I),
+		\]
+		\underline{stop}! $A$ is not diagonalizable over $\R$.
+		\pause
+		\item Otherwise, $A$ \underline{is} diagonalizable over $\R$.
+	\end{enumerate}
+\end{block}
+\end{frame}
+
+
+%----------
+\begin{frame}[t]
+\frametitle{Diagonalization}
+\begin{block}{Why?}
+	Let
+	\begin{align*}
+		V_\lambda &= \{x \in \R^n \mid Ax = \lambda x \} \\
+		&= \{x \in \R^n \mid (A-\lambda I)x = 0\} \\
+		&= \nullsp(A-\lambda I).
+	\end{align*}
+	Thus, 
+	\begin{align*}
+		\dim V_\lambda &= \dim \nullsp(A-\lambda I) \\
+		&= n-\rk(A-\lambda I) \\
+		&= \nullity(A-\lambda I).
+	\end{align*}
+\end{block}
+\end{frame}
+
+
+%----------
+\begin{frame}[t]
+\frametitle{Eigenvalues and Eigenvectors}
+\begin{block}{Facts}
+\begin{itemize}
+	\item $\dim V_\lambda \ge 1$
+	\item $\dim V_\lambda \le$ the multiplicity of $\lambda$ (i.e. geometric multiplicity $\le$
+	algebraic multiplicity)
+	\item Eigenvectors belonging to different eigenvalues must be linearly independent
+\end{itemize}
+\end{block}
+\pause
+\vspace{-5mm}
+\begin{thm}
+An $n \times n$ matrix $A$ is similar to a diagonal matrix $D$ if and only if $\R^n$ has a basis of
+eigenvectors of $A$. Moreover, the elements on the main diagonal of $D$ are the eigenvalues of
+$A$.
+\end{thm}
+\pause
+Thus, to find $n$ linearly independent eigenvectors, for each $\lambda$ we must have $\dim 
+V_\lambda = $ mult($\lambda$).
+\pause
+\begin{thm}
+An $n\times n$ matrix $A$ is diagonalizable if all the roots of its characteristic polynomial are
+real and distinct.
+\end{thm}
+\end{frame}
+
+%----------
+\begin{frame}[t]
+\frametitle{Eigenvalues and Eigenvectors}
+In the case that $A$ is diagonalizable, to find $P$ such that $P\inv A P = D$ we need
+\begin{enumerate}
+	\item For each $\lambda_i$, find a basis for $V_{\lambda_i}$, i.e. solve
+	\[
+		(A-\lambda_i I) x = 0
+	\]
+	and find a basis for $\nullsp(A-\lambda_i I)$. Say you find a basis $x_{i1}, \ldots, x_{ik_i}$,
+	where $k_i$ is the multiplicity of $\lambda_i$.
+	
+	\item Let $P = (x_{11}, \ldots, x_{1k_1}, \ldots, x_{i1}, \ldots, x_{ik_i}, \ldots, x_{r1}, \ldots, 
+	x_{rk_r})$. Then
+	\[
+		P\inv A P = \bmat 
+		\lambda_1 I_{k_1} & & & &\\
+		& \ddots & & & \\
+		& & \lambda_i I_{k_i} & & \\
+		& & & \ddots & \\
+		& & & & \lambda_r I_{k_r}
+		\emat.
+	\]
+\end{enumerate}
+\end{frame}
+
 \begin{frame}[t]
   \frametitle{Steps to visualize diagonalization}
   A matrix $A \in \mathbb{R}^{n\times n}$ is diagonalizable if it can be written in the form $A = PDP^{-1}$
@@ -245,7 +345,7 @@ In homogeneous coordinates, vectors that diiffer only by scale are considered
 to be equivalent. In homogeneous coordinates you can always use rotations
 instead of translations. To convert a homegenous vector to an inhomogenous
 vector just divide by the last element of the vector.  So given a homogenous
-vectors $\widetilde{x} = (x_1, x_2, w)$, the inhmoegnous coordinate is $(x_1/w, x_2/w)$.\\\\
+vectors $\widetilde{x} = (x_1, x_2, w)$, the inhmoegnous coordinate is $(x_1/w, x_2/w)$.\\
 \underline{Definition} A projective (or homogenous) transformation is any
 invertable  matrix $\widetilde{H}$ applied to a homogenous coordinate.
 Homogeneous coordinates are ubiquitous in 3d graphics. Here's a link to an 
