@@ -1,0 +1,100 @@
+
+% HMC Math dept HW template example
+% v0.04 by Eric J. Malm, 10 Mar 2005
+\documentclass[12pt,letterpaper,boxed]{hmcpset}
+
+% set 1-inch margins in the document
+\usepackage[margin=1in]{geometry}
+
+% include this if you want to import graphics files with /includegraphics
+\usepackage{graphicx,siunitx,cancel,scrextend,amsthm, amssymb, enumerate,
+  hyperref, parskip, mathtools, xcolor, amsfonts, xcolor}
+
+\input{macros.tex}
+
+\DeclareSIUnit\year{yr}
+\newcommand{\inden}{\begin{addmargin}[2em]{0em}}
+\renewcommand{\mod}[3]{#1 \equiv #2 \ (\mbox{mod } #3)}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+\newcommand{\highlight}[1]{%
+  \colorbox{red!50}{$\displaystyle#1$}}
+
+\newcommand{\cmmt}[1]{%
+  \text{\phantom{(#1)}} \tag{#1}
+}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\name{Joseph Gardi}					%% insert your name
+\class{Math142} 		%% replace spaces (\ \ \ ) with section #
+\assignment{Homework 4}
+\duedate{Due: Monday, Octoboer 7, 2019}
+
+\begin{document}
+\paragraph{A: Problems on Reviewing of Rigid Motions in $R^3$.}
+\begin{itemize}
+
+{\item a) Show that the set of rigid motions $E(3)$ forms a group. 
+(Later, we will see that  $E(3)$ is in fact a Lie group.)} 
+ 
+\end{itemize}
+\begin{solution}
+  
+\end{solution}
+\medskip
+\paragraph{B: Problems from Lectures}
+
+\begin{itemize}
+{\item a) Show that of all simple closed curves in the plane with 
+given length $l$, a circle bounds the largest area.}
+\begin{solution}
+See The isoperimetric inequality on Do Carmo page 33.
+\end{solution}
+\end{itemize}
+
+\paragraph{C: Other Problems}
+\begin{itemize}
+{\item a) Problem 2 on page 29, Section 1-6, Baby Do Carmo.}
+\begin{solution}
+  The osculating plane is the unique plane containing $\alpha(s), \alpha(s) + \alpha'(s), \alpha(s)
+  + \alpha''(s)$. Let $P_{h_1, h_2}$ be the plane containing $\alpha(s), \alpha(s + h_1), \alpha(s +
+  h_2)$.  It is given that $\alpha(s) \in P_{h_1, h_2}$.\\
+  Now we show $\alpha(s) + \alpha'(s) \in P_{h_1, h_2}$. All affine combinations of those points are contained in $P_{h_1, h_2}$ so
+  $\alpha(s) + \alpha'(s) = \alpha(s) + \frac{1}{h_1}(\alpha(s + h_1) - \alpha(s)) \in P_{h_1, h_2}$. 
+  Now we show $\alpha(s) + \alpha''(s) \in P_{h_1, h_2}$.
+  \begin{align*}
+    \alpha(s) + \alpha''(s) &= \alpha(s) + \frac{1}{h_2}(\alpha'(s + h_2) - \alpha'(s)) \\
+                  &= \alpha(s) + \frac{1}{h_2}(\frac{\alpha(s + h_2) - \alpha(s + h_1)}{h_2 - h_1} - \alpha'(s)) \\
+                  &\in P_{h_1, h_2} \cmmt{Since this is an affine combination of poitns in the plane} \\
+  \end{align*}
+\end{solution}
+{\item b) Problem 1 on page 47, Section 1-7, Baby Do Carmo.}
+\begin{solution}
+  No. That would violate the isoperimetric inequality. \\\\
+\end{solution}
+{\item c) Problem 2 on page 47, Section 1-7, Baby Do Carmo.}
+\begin{solution}
+Suppose that we have a curve $E$ of length $l$ from $A$ to $B$ that is part of a larger circle $D$ with length $g$. We know from the isoperimetric
+inequality that this circle is the closed cuve of length $g$ that bounds the
+largest possible area. If there was a curve $C$ of length $l$ from $A$ to $B$ that together
+with $\overline{AB}$ bounds a larger area than $E$ with $\overline{AB}$ that would
+contradict the isoperimetric theorem because that would imply that replaceing
+$E$ with $C$ in the circle $D$ would create a shape with length $g$ that bounds
+more area than the circle $D$.
+\end{solution}
+{\item d) Problem 3 on page 65, Section 2-2, Baby Do Carmo.}
+{\item e) Problem 5 on page 65, Section 2-2, Baby Do Carmo.}
+{\item f) Problem 10 on page 66, Section 2-2, Baby Do Carmo.}
+{\item g) Problem 16 on page 67, Section 2-2, Baby Do Carmo.}
+
+\end{itemize}
+
+\paragraph{D: Extra Credit Problems}
+\begin{itemize}
+{\item Give a different solution to B a).}
+\end{itemize}
+
+\end{document}
