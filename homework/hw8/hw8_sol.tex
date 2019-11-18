@@ -48,6 +48,8 @@ Show that
 \end{enumerate}
 \end{problem}
 \begin{solution}
+Done compuationally. See
+https://weiqinggu.github.io/Math142/homework/hw8/curvature.pdf
 \end{solution}
 
 \begin{problem}[C.b) Problem 1 on page 185, Section 3-4, Baby Do Carmo.]
@@ -55,6 +57,16 @@ Show that
 Prove that the differentiability of a vector field does not depend on the choice of a coordinate system.\\
 \end{problem}
 \begin{solution}
+  A change of coordinates is just a matrix multiplication. A matrix
+  multiplication is multiplying by constants and then summing. Differentiable
+  functions are closed under addition and multicplication so a differentiable
+  vector field will still be differentialbe after a change of coordinates. \\
+  Let $M$ be a change of coordinates for a vector field $w(a, b) = (w_1(a, b),
+\cdots)$. Then for all $i$,
+  \begin{align*}
+    \nabla w_i(M(a, b)) &= M \nabla w_i 
+  \end{align*}
+  So we still have a derivative everywhere. So it is still diferentiable. 
 \end{solution}
 
 \begin{problem}[C.c) Problem 2 on page 185, Section 3-4, Baby Do Carmo.]
@@ -62,6 +74,12 @@ Prove that the differentiability of a vector field does not depend on the choice
 Prove that the vector field obtained on the torus by parametrizing all its meridians by arc length and taking their tangent vectors (Example 1) is differentiable.\\
 \end{problem}
 \begin{solution}
+  The tangent vector for a curve paramterized by arclength is just the
+  derivative of the curve. So the problem is reduced to showing that the
+  merdians parameterized by arclength are twice differentiable. Reparameterizing
+  a curve does not change that it is twice differentiable. So we can just take
+  some arbitrary parameterization of a meridian like $\alpha(a, b) = \sqrt{a^2 +
+    b^2}$. This is twice differentiable. 
 \end{solution}
 
 \begin{problem}[C.d) Problem 5 on page 186, Section 3-4, Baby Do Carmo.]
@@ -79,6 +97,10 @@ $$Ec-2Fb+Ga = 0$$\\
 Show that if $w$ is a differentiable vector field on a surface $S$ and $w(p)\neq 0$ for some $p\in S$, then it is possible to parametrize a neighborhood of $p$ by $x(u,v)$ in such a way that $x_u = w$. 
 \end{problem}
 \begin{solution}
+  Let $M: R^2 \rightarrow R^3$ be a linear transformation. Let $y = x(M(u, v))$.
+  Then $y_u = Mx_u$. Since $w \neq 0$ and $x_u \neq 0$ there exists some $M$ such that
+  $Mx_u = w$. So by choosing the right $M$ we can always get a parameterization
+  of $S$ where $y_u = w$.
 \end{solution}
 
 \newpage 
